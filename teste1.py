@@ -14,11 +14,14 @@ def pegar_cotacoes():
     Dólar: {cotacao_dolar}
     Euro: {cotacao_euro}
     BTC: {cotacao_btc}'''
-
-    print(texto)
-
-pegar_cotacoes()
+    texto_orientacao["text"] = texto
+    
 
 janela = Tk()
+
+botao = Button(janela, text="teste", command=pegar_cotacoes)
+botao.grid(column=0, row=1)
+texto_orientacao = Label(janela, text="")
+texto_orientacao.grid(column=0, row=2)
 
 janela.mainloop()
