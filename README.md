@@ -1,2 +1,2 @@
 # Estudos
- Estudos de Python
+ Estudos de Python para desktop
