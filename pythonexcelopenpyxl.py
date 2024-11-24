@@ -1,6 +1,10 @@
 from openpyxl import Workbook, load_workbook
 
+#teste com openpyxl
+
+#ler a planilha
 planilha = load_workbook("Planilhas/Produtos.xlsx")
+
 aba_ativa = planilha.active
 aba_ativa["C"]
 

@@ -1,46 +1,27 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ### Criar PPT
-# 
-# python-pptx
-# 
-# Documentação: https://python-pptx.readthedocs.io/en/latest/index.html
-
-# ### Criar PPT baseado em Modelo
-
-# In[14]:
-
-
 from pptx import Presentation
 
 apresentacao = Presentation()
 
-# editar o ppt 
+#editar o ppt 
 slide1 = apresentacao.slides.add_slide(apresentacao.slide_layouts[0]) # slide com titulo e subtitulo
-# slide1 = apresentacao.slides.add_slide(apresentacao.slide_layouts[6]) # slide em branco
+#slide1 = apresentacao.slides.add_slide(apresentacao.slide_layouts[6]) # slide em branco
 
 titulo = slide1.shapes.title 
 subtitulo = slide1.placeholders[1]
 
-titulo.text = "1º Slide do Lira"
-subtitulo.text = "Tamo criando ppt com Python"
+titulo.text = "1º Slide do Bryan"
+subtitulo.text = "Teste de slide"
 
-# salvar esse ppt
-apresentacao.save("MeuPPT.pptx")
+#salvar esse ppt
+apresentacao.save("Apresentacoes/Apresentacao1.pptx")
 
-
-# ### Criar PPT personalizados
-
-# In[19]:
-
+#criar PPT personalizados
 
 from pptx import Presentation
 from pptx.util import Inches, Pt
 
 apresentacao = Presentation()
 
-# editar o ppt
 slide = apresentacao.slides.add_slide(apresentacao.slide_layouts[6])
 
 x = Inches(1)
@@ -49,10 +30,10 @@ largura = Inches(2)
 altura = Inches(2)
 caixa_texto = slide.shapes.add_textbox(x, y, largura, altura)
 
-# 1 forma de editar uma caixa de texto
+#editar uma caixa de texto
 caixa_texto.text = "Vendas de Janeiro"
 
-# 2 forma: criar parágrafos
+#criar parágrafos
 text_frame = caixa_texto.text_frame
 paragrafo = text_frame.add_paragraph()
 paragrafo.text = "R$10.000"
@@ -62,15 +43,11 @@ paragrafo.font.size = Pt(30)
 paragrafo = text_frame.add_paragraph()
 paragrafo.text = "Produto mais vendido: IPhone"
 
-# salvar esse ppt
-apresentacao.save("MeuPPT2.pptx")
+#salvar
+apresentacao.save("Apresentacoes/Apresentacao2.pptx")
 
 
-# ### Criar PPTs com Gráficos
-
-# In[20]:
-
-
+#criar PPTs com Gráficos
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.chart.data import CategoryChartData
@@ -80,7 +57,7 @@ apresentacao = Presentation()
 
 slide = apresentacao.slides.add_slide(apresentacao.slide_layouts[6])
 
-# criar o nosso gráfico
+#criar gráfico
 produtos = ["IPhone", "IPad", "Airpod"] # categorias (eixo x)
 vendas = [1500, 1000, 2000] # serie de dados (eixo y)
 
@@ -92,14 +69,9 @@ altura = Inches(3)
 dados_grafico = CategoryChartData()
 dados_grafico.categories = produtos
 dados_grafico.add_series("Vendas", vendas)
-# tipos de gráfico: https://python-pptx.readthedocs.io/en/latest/api/enum/XlChartType.html#xlcharttype
 slide.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, x, y, largura, altura, dados_grafico)
 
-# salvar esse ppt
-apresentacao.save("MeuPPT3.pptx")
-
-
-# In[ ]:
+apresentacao.save("Apresentacoes/Apresentacao3.pptx")
 
 
 

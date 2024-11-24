@@ -1,6 +1,9 @@
 import pyautogui
 import time
 
+#pequeno teste para abrir programas
+
+#safe pauses entre ações
 pyautogui.PAUSE = 0.5
 pyautogui.press('winleft')
 pyautogui.write('power point')

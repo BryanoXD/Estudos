@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+#teste com plotly para plotar gráficos e montar um dashboard
+##comando no cmd para rotar o streamlit que monta o dashboard em servidor local
+#streamlit run c:/caminho/Estudos/Planilhas/plotlyteste.py
+
 tabela = pd.read_excel(r'C:\Users\bryan\Documents\Estudos\Planilhas\Produtos.xlsx')
 
 tipo = st.sidebar.selectbox("Tipo:", tabela['Tipo'].unique())
@@ -13,6 +17,3 @@ tipo_filtrado = tabela[tabela["Tipo"] == tipo]
 
 graf_produto = px.bar(tipo_filtrado, x="Produtos", y="Preço Base Reais", title="Faturamento por dia")
 col1.plotly_chart(graf_produto, use_container_width=True)
-
-#graf_servico = px.bar(tipo_filtrado, x="Produtos", y="Preço Base Reais", title="Faturamento por tipo de produto", orientation="h")
-#col2.plotly_chart(graf_produto, use_container_width=True)
