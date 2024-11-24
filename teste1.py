@@ -1,9 +1,13 @@
 import requests
 from tkinter import *
 
+
+#teste para abrir janela em desktop com o tkinter
+#teste para receber uma api da internet
 def pegar_cotacoes():
     requisicao = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
 
+    #transformar json objeto python
     requisicao_dic = requisicao.json()
 
     cotacao_dolar = requisicao_dic['USDBRL']['bid']
@@ -16,7 +20,8 @@ def pegar_cotacoes():
     BTC: {cotacao_btc}'''
     texto_orientacao["text"] = texto
     
-
+#abrir janela
+#.mainloop() mantém a janela aberta
 janela = Tk()
 
 botao = Button(janela, text="teste", command=pegar_cotacoes)
